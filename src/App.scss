@@ -44,9 +44,31 @@
       }
       .green {
         color: greenyellow;
+        position: relative;
+        .absValue {
+          margin-right: 5px;
+        }
+        .percentage {
+          margin-left: 20px;
+        }
+        .carrot {
+          position: absolute;
+          top: 3px;
+        }
       }
       .red {
         color: red;
+        position: relative;
+        .absValue{
+          margin-right: 5px;
+        }
+        .percentage {
+          margin-left: 20px;
+        }
+        .carrot {
+          position: absolute;
+          top: 3px;
+        }
       }
     }
     .bottomContent {

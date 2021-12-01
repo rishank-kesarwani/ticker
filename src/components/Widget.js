@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import BitCoin from "../assets/BTC.svg";
-import {CaretDownFill} from 'react-bootstrap-icons';
+import {CaretDownFill,CaretUpFill} from 'react-bootstrap-icons';
 export const Widget = () => {
     const [widgetData, setWidgetData] = useState({ volume: "", high: "", low: "", change: "", lastPrice: "" });
     const [wss, setWss] = useState(new WebSocket('wss://api-pub.bitfinex.com/ws/2'));
@@ -41,7 +41,7 @@ export const Widget = () => {
                     </div>
                     <div className="middleContent">
                         <p><span className="text">Vol</span> <span>{parseFloat(widgetData.volume / 1000).toFixed(0)}</span><span>,</span><span>{parseFloat(widgetData.volume % 1000).toFixed(0)}</span> <span className="btc">BTC</span></p>
-                        <p className={widgetData.change > 0 ? "green" : "red"}><span>{widgetData.change}</span><CaretDownFill /><span></span><span></span></p>
+                        <p className={widgetData.change > 0 ? "green" : "red"}><span className="absValue">{parseFloat(Math.abs(widgetData.change) / 10).toFixed(2)}</span><span className="carrot">{widgetData.change < 0 ? <CaretDownFill /> :<CaretUpFill />}</span><span className="percentage">({parseFloat(Math.abs(widgetData.change)/1000).toFixed(2)}%)</span></p>
                     </div>
                     <div className="bottomContent">
                         <p><span className="text">Low</span> <span>{parseFloat(widgetData.low / 1000).toFixed(0)}</span><span>,</span><span>{parseFloat(widgetData.low % 1000).toFixed(1)}</span></p>
@@ -50,8 +50,8 @@ export const Widget = () => {
                 </div>
             </div>
             <div className="buttonContainer">
-                <button type='button' onClick={() => wss.close()} >Connect</button>
-                <button type='button' onClick={() => setWss(new WebSocket('wss://api-pub.bitfinex.com/ws/2'))}>Disconnect</button>
+                <button type='button' onClick={() => setWss(new WebSocket('wss://api-pub.bitfinex.com/ws/2'))} >Connect</button>
+                <button type='button' onClick={() => wss.close()}>Disconnect</button>
             </div>
         </div>
     )
