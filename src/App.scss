@@ -1,0 +1,76 @@
+.trading-data {
+  width: 30%;
+  margin: 20px auto;
+  .mainContainer {
+    display: flex;
+    background-color: #303030;
+    padding: 20px 0;
+    .imageContainer {
+      display: flex;
+      align-items: center;
+      margin: 0 20px;
+      img {
+        width: 45px;
+        height: 45px;
+        margin: 0 auto;
+        color: white;
+      }
+    }
+  }
+  .dataContainer {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: 0 auto;
+    color: white;
+    .topContent {
+      display: flex;
+      justify-content: space-between;
+      p {
+        font-size: 1.25rem;
+        text-transform: uppercase;
+        margin: 5px 0;
+      }
+    }
+    .middleContent {
+      display: flex;
+      justify-content: space-between;
+      p {
+        text-transform: uppercase;
+        margin: 5px 0;
+        .btc {
+          text-decoration: underline;
+        }
+      }
+      .green {
+        color: greenyellow;
+      }
+      .red {
+        color: red;
+      }
+    }
+    .bottomContent {
+      display: flex;
+      justify-content: space-between;
+      p {
+        text-transform: uppercase;
+        margin: 5px 0;
+      }
+    }
+  }
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    button {
+      width: 25%;
+      height: 50px;
+      background-color: cornflowerblue;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+  }
+}
